@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import Game from './Game';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [playing, setPlaying] = useState(false);
+
+  const onKeyDown = event => {
+    if (event.key === ' ') {
+      event.preventDefault();
+      setPlaying(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', onKeyDown);
+
+    return function cleanup() {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  });
+
+  return (
+    <div className="App">
+      <Game playing={playing} setPlaying={setPlaying} />
+    </div>
+  );
+};
 
 export default App;

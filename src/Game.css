@@ -1,0 +1,23 @@
+.Game-canvas {
+  width: 100%;
+}
+
+.Game-score {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  font-size: 32px;
+  color: #fff;
+  padding: 16px;
+}
+
+.Game-message {
+  position: absolute;
+  bottom: 200px;
+  left: calc(50% - 150px);
+  z-index: 1;
+  width: 300px;
+  text-align: center;
+  color: #fff;
+}
