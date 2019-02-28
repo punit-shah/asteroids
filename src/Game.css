@@ -7,17 +7,17 @@
   top: 0;
   left: 0;
   z-index: 1;
-  font-size: 32px;
+  font-size: 2rem;
   color: #fff;
-  padding: 16px;
+  padding: 1rem;
 }
 
 .Game-message {
   position: absolute;
-  bottom: 200px;
-  left: calc(50% - 150px);
+  bottom: 12rem;
+  left: calc(50% - 9.375rem);
   z-index: 1;
-  width: 300px;
+  width: 18.75rem;
   text-align: center;
   color: #fff;
 }
