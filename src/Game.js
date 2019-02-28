@@ -53,11 +53,9 @@ class Game extends Component {
     } = this.state;
 
     context.scale(pixelRatio, pixelRatio);
-    // this.state.context = context;
     this.setState({ context });
 
     this.createShip();
-    // this.updateGroup(this.groups.playerShip);
 
     this.addEventListeners();
   }
@@ -75,7 +73,7 @@ class Game extends Component {
     this.setState({
       viewport: {
         width: window.innerWidth,
-        height: window.innerHeight - 43,
+        height: window.innerHeight,
         pixelRatio,
       },
     });
