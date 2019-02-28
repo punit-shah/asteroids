@@ -74,22 +74,24 @@ class Asteroid {
   }
 
   draw(context) {
-    context.save();
-    context.translate(this.position.x, this.position.y);
-    context.rotate(degreesToRadians(this.direction));
-    context.strokeStyle = colours.fg;
-    context.lineWidth = 1;
-    context.beginPath();
-    this.points.forEach((point, index) => {
-      if (index === 0) {
-        context.moveTo(point.x, point.y);
-      } else {
-        context.lineTo(point.x, point.y);
-      }
-    });
-    context.closePath();
-    context.stroke();
-    context.restore();
+    if (context) {
+      context.save();
+      context.translate(this.position.x, this.position.y);
+      context.rotate(degreesToRadians(this.direction));
+      context.strokeStyle = colours.fg;
+      context.lineWidth = 1;
+      context.beginPath();
+      this.points.forEach((point, index) => {
+        if (index === 0) {
+          context.moveTo(point.x, point.y);
+        } else {
+          context.lineTo(point.x, point.y);
+        }
+      });
+      context.closePath();
+      context.stroke();
+      context.restore();
+    }
   }
 
   updateDirection() {

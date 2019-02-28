@@ -13,13 +13,3 @@
   color: #fff;
   padding: 1rem;
 }
-
-.Game-message {
-  position: absolute;
-  bottom: 12rem;
-  left: calc(50% - 9.375rem);
-  z-index: 1;
-  width: 18.75rem;
-  text-align: center;
-  color: #fff;
-}

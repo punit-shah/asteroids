@@ -1,0 +1,31 @@
+.TitleScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.TitleScreen-title {
+  font-family: 'Bungee Hairline', Menlo, Consolas, monospace;
+  font-weight: bold;
+}
+
+.TitleScreen-game-start {
+  font-size: 8rem;
+}
+
+.TitleScreen-game-over {
+  font-size: 5rem;
+}
+
+.TitleScreen-message {
+  font-family: Menlo, Consolas, monospace;
+  font-size: 1.5rem;
+  font-weight: normal;
+}

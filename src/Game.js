@@ -4,9 +4,14 @@ import Ship from './ship';
 import Asteroid from './asteroid';
 import { getRandomNum, calculateMagnitude } from './utils';
 import colours from './colours';
+import TitleScreen from './TitleScreen';
 import './Game.css';
 
 const collision = (object1, object2) => {
+  if (!object1 || !object2) {
+    return false;
+  }
+
   const distanceVector = {
     x: object1.position.x - object2.position.x,
     y: object1.position.y - object2.position.y,
@@ -55,7 +60,8 @@ class Game extends Component {
     context.scale(pixelRatio, pixelRatio);
     this.setState({ context });
 
-    this.createShip();
+    this.createInitialAsteroids(5);
+    this.update();
 
     this.addEventListeners();
   }
@@ -131,8 +137,7 @@ class Game extends Component {
   }
 
   endGame() {
-    const { setPlaying } = this.props;
-    setPlaying(false);
+    this.props.setPlaying(false);
     this.setState({ gameOver: true });
   }
 
@@ -143,7 +148,7 @@ class Game extends Component {
 
     const position = {
       x: width / 2,
-      y: height - 200,
+      y: height / 2,
     };
 
     const ship = new Ship({
@@ -246,8 +251,10 @@ class Game extends Component {
       viewport: { width, height },
     } = this.state;
 
-    context.fillStyle = colours.bg;
-    context.fillRect(0, 0, width, height);
+    if (context) {
+      context.fillStyle = colours.bg;
+      context.fillRect(0, 0, width, height);
+    }
 
     this.updateAllObjects();
 
@@ -264,10 +271,9 @@ class Game extends Component {
 
     return (
       <div className="Game">
+        {(!playing && !gameOver) && <TitleScreen />}
         {(playing || gameOver) && <div className="Game-score">{score}</div>}
-        {gameOver && (
-          <div className="Game-message">Press space to play again.</div>
-        )}
+        {gameOver && <TitleScreen type="game-over" />}
         <canvas
           className="Game-canvas"
           ref={this.canvasRef}
