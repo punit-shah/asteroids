@@ -1,6 +1,6 @@
 # ａｓｔｅｒｏｉｄｓ
 
-A clone of the classic arcade game Asteroids in JavaScript and Canvas 🚀👾
+A clone of the classic arcade game Asteroids in JavaScript 🚀👾
 
 ## Development
 
