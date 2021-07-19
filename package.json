@@ -1,13 +1,15 @@
 {
   "name": "asteroids",
   "version": "1.0.0",
-  "homepage": "https://punit-shah.github.io/asteroids",
+  "homepage": "https://asteroidsjs.surge.sh/",
   "private": true,
   "dependencies": {
-    "gh-pages": "^2.0.1",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
-    "react-scripts": "2.1.5"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "react-scripts": "4.0.3",
+    "surge": "^0.23.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -15,7 +17,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "surge build --domain https://asteroidsjs.surge.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
