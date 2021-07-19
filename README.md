@@ -32,4 +32,4 @@ The build is minified and the filenames include the hashes.
 
 ### `yarn deploy`
 
-Deploys the production app to GitHub Pages.
+Deploys the production app to Surge.
